@@ -1,185 +1,70 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LokaShare アカウント削除リクエスト</title>
-  <style>
-    :root {
-      --primary: #6366F1;
-      --text: #222;
-      --sub: #555;
-      --bg: #fff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text: #f0f0f0;
-        --sub: #bbb;
-        --bg: #1a1a1a;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
-        "Yu Gothic", sans-serif;
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 20px 80px;
-      line-height: 1.8;
-      color: var(--text);
-      background: var(--bg);
-    }
-    h1 {
-      border-bottom: 3px solid var(--primary);
-      padding-bottom: 12px;
-      margin-bottom: 24px;
-    }
-    h2 {
-      color: var(--primary);
-      margin-top: 32px;
-      font-size: 1.15rem;
-    }
-    p { margin: 12px 0; }
-    ul { padding-left: 1.2em; }
-    li { margin: 6px 0; }
-    a { color: var(--primary); }
-    .meta {
-      color: var(--sub);
-      font-size: 0.85rem;
-      margin-top: 48px;
-      padding-top: 16px;
-      border-top: 1px solid #ddd;
-    }
-    .lead { color: var(--sub); margin-bottom: 24px; }
-    .contact-box {
-      background: rgba(99, 102, 241, 0.08);
-      border-left: 4px solid var(--primary);
-      padding: 16px 20px;
-      margin: 24px 0;
-      border-radius: 4px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 16px 0;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px 12px;
-      text-align: left;
-    }
-    th {
-      background: rgba(99, 102, 241, 0.08);
-    }
-  </style>
-</head>
-<body>
-  <h1>アカウント削除リクエスト</h1>
-  <p class="lead">
-    LokaShare では、ユーザー自身がいつでもアカウントを削除できます。
-    本ページでは、アプリ内での削除手順と、Web 経由での削除リクエスト窓口についてご案内します。
-  </p>
+アカウント削除リクエスト
+LokaShare では、ユーザー自身がいつでもアカウントを削除できます。 本ページでは、アプリ内での削除手順と、Web 経由での削除リクエスト窓口についてご案内します。
 
-  <h2>方法 1: アプリ内から削除する (推奨・即時反映)</h2>
-  <ol>
-    <li>LokaShare アプリを起動してサインイン</li>
-    <li>下部メニューの「設定」をタップ</li>
-    <li>「アカウント」セクションの「アカウントを削除」をタップ</li>
-    <li>確認ダイアログで「削除」をタップ</li>
-  </ol>
-  <p>
-    アプリ内から削除した場合、関連データはすべて即時にサーバーから削除されます
-    (Supabase Auth の auth.users レコード削除に伴う CASCADE 削除)。
-  </p>
+方法 1: アプリ内から削除する (推奨・即時反映)
+LokaShare アプリを起動してサインイン
+下部メニューの「設定」をタップ
+「アカウント」セクションの「アカウントを削除」をタップ
+確認ダイアログで「削除」をタップ
+アプリ内から削除した場合、関連データはすべて即時にサーバーから削除されます (Supabase Auth の auth.users レコード削除に伴う CASCADE 削除)。
 
-  <h2>方法 2: Web 経由で削除リクエストを送る</h2>
-  <p>
-    アプリにアクセスできない場合や、退会済みでログイン不可の場合は、
-    下記メールアドレスまでアカウント削除リクエストをお送りください。
-  </p>
+方法 2: Web 経由で削除リクエストを送る
+アプリにアクセスできない場合や、退会済みでログイン不可の場合は、 下記メールアドレスまでアカウント削除リクエストをお送りください。
 
-  <div class="contact-box">
-    <p><strong>送信先:</strong> <a href="mailto:tokiyoshi.0410@gmail.com?subject=%5BLokaShare%5D%20%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%89%8A%E9%99%A4%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88">tokiyoshi.0410@gmail.com</a></p>
-    <p><strong>件名:</strong> 「[LokaShare] アカウント削除リクエスト」</p>
-    <p><strong>本文に必要な情報:</strong></p>
-    <ul>
-      <li>アカウントに登録しているメールアドレス</li>
-      <li>アプリ内のユーザー名 (分かる範囲で)</li>
-      <li>削除を希望する旨</li>
-    </ul>
-  </div>
+送信先: tokiyoshi.0410@gmail.com
 
-  <p>
-    リクエスト受領後、本人確認のうえ <strong>30 日以内</strong> に削除を実行します。
-    本人確認のため、登録メールアドレスから送信していただく必要があります。
-  </p>
+件名: 「[LokaShare] アカウント削除リクエスト」
 
-  <h2>削除されるデータ</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>データ種別</th>
-        <th>削除タイミング</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>アカウント情報 (メール / ユーザー名 / プロフィール写真)</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>位置情報履歴</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>友達関係 / ブロック / フォロー</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>送受信メッセージ・写真・ストーリー</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>集合ピン・メモリー・経路記録</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>緊急連絡先・通知設定</td>
-        <td>即時</td>
-      </tr>
-      <tr>
-        <td>サーバーバックアップ</td>
-        <td>最大 30 日以内</td>
-      </tr>
-    </tbody>
-  </table>
+本文に必要な情報:
 
-  <h2>保持されるデータ (法令遵守目的)</h2>
-  <p>
-    法令により記録保持が義務付けられている場合、以下のデータは匿名化のうえ最大 1 年間保持される場合があります:
-  </p>
-  <ul>
-    <li>不正利用 / 通報対応に関する操作ログ (個人を特定できない形式)</li>
-    <li>支払い履歴 (該当機能を提供している場合のみ・現状なし)</li>
-  </ul>
+アカウントに登録しているメールアドレス
+アプリ内のユーザー名 (分かる範囲で)
+削除を希望する旨
+リクエスト受領後、本人確認のうえ 30 日以内 に削除を実行します。 本人確認のため、登録メールアドレスから送信していただく必要があります。
 
-  <h2>削除後の挙動</h2>
-  <ul>
-    <li>同じメールアドレスで再度新規登録できます。ただし過去のデータは復元されません。</li>
-    <li>友達リストから自動的に外れます (相手側にも反映)。</li>
-    <li>送受信したメッセージは、相手側の画面からも削除されます。</li>
-  </ul>
+方法 3: 一部のデータのみ削除する (アカウントは残す)
+アカウント自体は残したまま、特定のデータだけを削除することも可能です。以下の方法から選択してください。
 
-  <h2>関連リンク</h2>
-  <ul>
-    <li><a href="./privacy.html">プライバシーポリシー</a></li>
-    <li><a href="./terms.html">利用規約</a></li>
-    <li><a href="./support.html">サポート</a></li>
-  </ul>
+アプリ内から個別に削除する
+ストーリー: 自身のストーリーを長押し → 「削除」
+メッセージ: チャット画面で対象メッセージを長押し → 「削除」
+写真 (プロフィール / メッセージ / メモリー): 各画面の編集メニューから個別削除
+集合ピン: ピン詳細画面の「削除」ボタン
+場所メモリー: メモリー一覧で対象を長押し → 「削除」
+経路履歴: 経路画面の編集メニューから個別削除
+友達関係 / ブロック: 友達一覧から「友達を削除」または「ブロック」
+Web 経由で部分削除をリクエストする
+アプリ内からの削除が困難な場合、上記の Web 経由削除リクエストと同じメールアドレスに、 削除を希望するデータの種類を明記して送信してください。 リクエスト受領後 30 日以内 に対応します。
 
-  <p class="meta">
-    最終更新日: 2026-05-04<br>
-    LokaShare 開発者 (Yusuke Tokiyoshi)
-  </p>
-</body>
-</html>
+送信先: tokiyoshi.0410@gmail.com
+
+件名: 「[LokaShare] データ削除リクエスト」
+
+本文に必要な情報:
+
+アカウントに登録しているメールアドレス
+削除を希望するデータの種類 (例: ストーリーすべて、特定の集合ピン、経路履歴など)
+削除されるデータ
+データ種別	削除タイミング
+アカウント情報 (メール / ユーザー名 / プロフィール写真)	即時
+位置情報履歴	即時
+友達関係 / ブロック / フォロー	即時
+送受信メッセージ・写真・ストーリー	即時
+集合ピン・メモリー・経路記録	即時
+緊急連絡先・通知設定	即時
+サーバーバックアップ	最大 30 日以内
+保持されるデータ (法令遵守目的)
+法令により記録保持が義務付けられている場合、以下のデータは匿名化のうえ最大 1 年間保持される場合があります:
+
+不正利用 / 通報対応に関する操作ログ (個人を特定できない形式)
+支払い履歴 (該当機能を提供している場合のみ・現状なし)
+削除後の挙動
+同じメールアドレスで再度新規登録できます。ただし過去のデータは復元されません。
+友達リストから自動的に外れます (相手側にも反映)。
+送受信したメッセージは、相手側の画面からも削除されます。
+関連リンク
+プライバシーポリシー
+利用規約
+サポート
+最終更新日: 2026-05-04
+LokaShare 開発者 (Yusuke Tokiyoshi)
